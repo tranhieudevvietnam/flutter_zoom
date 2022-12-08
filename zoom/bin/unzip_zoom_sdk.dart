@@ -67,39 +67,54 @@ void main(List<String> args) async {
 
 Future<void> checkAndDownloadSDK(String location) async {
   var iosSDKFile = location +
-      '/ios/MobileRTC.xcframework/ios-arm64_armv7/MobileRTC.framework/MobileRTC';
+      '/ios/MobileRTC.xcframework/ios-arm64/MobileRTC.framework/MobileRTC';
   bool exists = await File(iosSDKFile).exists();
 
   if (!exists) {
+    // await downloadFile(
+    //     Uri.parse('https://com21-static.s3.sa-east-1.amazonaws.com/zoom/ios/ios-arm64_armv7/MobileRTC?dl=1'),
+    //     iosSDKFile);
     await downloadFile(
-        Uri.parse('https://com21-static.s3.sa-east-1.amazonaws.com/zoom/ios/ios-arm64_armv7/MobileRTC?dl=1'),
+        Uri.parse(
+            'https://drive.google.com/uc?id=1TxApfi_DUeQwyRvxzrQ5zZdYkVGoY8U4&export=download'),
         iosSDKFile);
   }
 
   var iosSimulateSDKFile = location +
-      '/ios/MobileRTC.xcframework/ios-i386_x86_64-simulator/MobileRTC.framework/MobileRTC';
+      '/ios/MobileRTC.xcframework/ios-x86_64-simulator/MobileRTC.framework/MobileRTC';
   exists = await File(iosSimulateSDKFile).exists();
 
   if (!exists) {
+    // await downloadFile(
+    //     Uri.parse('https://com21-static.s3.sa-east-1.amazonaws.com/zoom/ios/ios-x86_64-simulator/MobileRTC'),
+    //     iosSimulateSDKFile);
     await downloadFile(
-        Uri.parse('https://com21-static.s3.sa-east-1.amazonaws.com/zoom/ios/ios-x86_64-simulator/MobileRTC'),
+        Uri.parse(
+            'https://drive.google.com/uc?id=1FHmsnncbguc2WhFzBluqZ4JAhA6-nPMe&export=download'),
         iosSimulateSDKFile);
   }
 
   var androidCommonLibFile = location + '/android/libs/commonlib.aar';
   exists = await File(androidCommonLibFile).exists();
   if (!exists) {
+    // await downloadFile(
+    //     Uri.parse(
+    //         'https://com21-static.s3.sa-east-1.amazonaws.com/zoom/android/commonlib.aar?dl=1'),
     await downloadFile(
         Uri.parse(
-            'https://com21-static.s3.sa-east-1.amazonaws.com/zoom/android/commonlib.aar?dl=1'),
+            'https://drive.google.com/u/1/uc?id=1b6jykGxH7KJtf0tVz0eTiBUMdM2MJUUY&export=download'),
         androidCommonLibFile);
   }
   var androidRTCLibFile = location + '/android/libs/mobilertc.aar';
   exists = await File(androidRTCLibFile).exists();
   if (!exists) {
+    // await downloadFile(
+    //     Uri.parse(
+    //         'https://com21-static.s3.sa-east-1.amazonaws.com/zoom/android/mobilertc.aar?dl=1'),
+    //     androidRTCLibFile);
     await downloadFile(
         Uri.parse(
-            'https://com21-static.s3.sa-east-1.amazonaws.com/zoom/android/mobilertc.aar?dl=1'),
+            'https://doc-08-10-docs.googleusercontent.com/docs/securesc/3k8mo6c3vp0c2m3bvi172ufeifcggv6p/b360u4mkcp0p7t6om4vsd1cv2iig892e/1670468550000/02969869246661642938/13551815699291675095Z/1XIQJ71ZnomXCQB5vwETSKJ2O6uWfCYwR?e=download&uuid=3e4e86ff-5843-460b-8f23-3af148a0f991&nonce=jf5a23lpthmtk&user=13551815699291675095Z&hash=mp021ptc55q82hboo98vs9l14inb09d5'),
         androidRTCLibFile);
   }
 }
